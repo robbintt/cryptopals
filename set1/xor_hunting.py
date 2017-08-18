@@ -4,11 +4,16 @@ The thing says to use a letter frequency checker.
 I have done this a lot and skipped it.
 
 result: ('X', "Cooking MC's like a pound of bacon")
-'''
+''' 
 import base64
+import logging
+
+logging.basicConfig(filename='error.log', level=logging.DEBUG)
 
 # turned them into characters even though we are using xor with ints
 test_characters = [chr(x) for x in range(256)]
+
+not_hex_inputs_filename = 'not-hex.txt'
 
 # use lower on the string you are testing
 # frequencies are per 100,000 letters
@@ -71,7 +76,14 @@ def xor_by_char(target, c):
     c       => character as python string
     '''
     # decode from base16 to binary
-    decoded_string = base64.b16decode(target, True)
+    try:
+        decoded_string = base64.b16decode(target.upper(), True)
+    except TypeError as e:
+        logging.info("{} {}".format(e, target)) 
+        with open(not_hex_inputs_filename, 'a') as f:
+            f.write(target)
+        return False
+
 
     result = list()
     for letter in decoded_string:
@@ -89,6 +101,8 @@ if __name__ == '__main__':
     result_list = list()
     for c in test_characters:
         result = xor_by_char(hex_encoded_string, c)
+        if not result:
+            break
         score = letter_frequency_scorer(result)
             
         result_list.append([score, c, result])
