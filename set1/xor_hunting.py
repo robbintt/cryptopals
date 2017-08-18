@@ -13,7 +13,7 @@ logging.basicConfig(filename='error.log', level=logging.DEBUG)
 # turned them into characters even though we are using xor with ints
 test_characters = [chr(x) for x in range(256)]
 
-not_hex_inputs_filename = 'not-hex.txt'
+not_hex_inputs_filename = 'not-hex.log'
 
 # use lower on the string you are testing
 # frequencies are per 10,000 letters
