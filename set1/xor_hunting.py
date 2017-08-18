@@ -16,7 +16,7 @@ test_characters = [chr(x) for x in range(256)]
 not_hex_inputs_filename = 'not-hex.txt'
 
 # use lower on the string you are testing
-# frequencies are per 100,000 letters
+# frequencies are per 10,000 letters
 # from: https://en.wikipedia.org/wiki/Letter_frequency
 letter_frequency_index = {
         'e' : 1270,
@@ -48,7 +48,7 @@ letter_frequency_index = {
 
 
 def letter_frequency_scorer(test_str):
-    ''' Return average score of test_str. Higher scores are more similar to English.
+    ''' Return a score of test_str. Higher scores are more similar to English.
 
     I could also score based on whitespace requirements
         - This might hide actual english though without ascii whitespace
@@ -62,10 +62,8 @@ def letter_frequency_scorer(test_str):
         if letter in letter_frequency_index:
             presence += 1
 
-
+    # the raw score is based on the frequency of each letter in the english language
     # if a higher ratio of english letters are present, the score is higher
-    # the score is then based on actual frequency of english letters
-    # the frequency test actually seems less useful.
     return score * (float(presence)  / len(test_str))
 
 
@@ -83,7 +81,6 @@ def xor_by_char(target, c):
         with open(not_hex_inputs_filename, 'a') as f:
             f.write(target)
         return False
-
 
     result = list()
     for letter in decoded_string:
