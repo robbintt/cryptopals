@@ -49,6 +49,7 @@ def letter_frequency_scorer(test_str):
 
     I could also score based on whitespace requirements
         - This might hide actual english though without ascii whitespace
+
     I could also score based on how many non english characters are present
     '''
     score = 0
@@ -62,7 +63,7 @@ def letter_frequency_scorer(test_str):
     # if a higher ratio of english letters are present, the score is higher
     # the score is then based on actual frequency of english letters
     # the frequency test actually seems less useful.
-    return presence * (score / len(test_str))
+    return score * (float(presence)  / len(test_str))
 
 
 def xor_by_char(target, c):
