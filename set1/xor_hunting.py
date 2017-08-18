@@ -7,8 +7,6 @@ result: ('X', "Cooking MC's like a pound of bacon")
 '''
 import base64
 
-hex_encoded_string = '1b37373331363f78151b7f2b783431333d78397828372d363c78373e783a393b3736'
-
 # turned them into characters even though we are using xor with ints
 test_characters = [chr(x) for x in range(256)]
 
@@ -85,6 +83,9 @@ def xor_by_char(target, c):
 if __name__ == '__main__':
     '''
     '''
+
+    hex_encoded_string = '1b37373331363f78151b7f2b783431333d78397828372d363c78373e783a393b3736'
+
     result_list = list()
     for c in test_characters:
         result = xor_by_char(hex_encoded_string, c)
