@@ -60,7 +60,7 @@ def letter_frequency_scorer(test_str):
     '''
     score = 0
     presence = 0
-    for letter in test_str:
+    for letter in test_str.lower():
         score += letter_frequency_index.get(letter, 0)
         if letter in letter_frequency_index:
             presence += 1
