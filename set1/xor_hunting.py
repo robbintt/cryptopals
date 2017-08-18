@@ -1,8 +1,5 @@
 ''' Find the single character that the hex encoded string has been xor'd against
 
-The thing says to use a letter frequency checker.
-I have done this a lot and skipped it.
-
 result: ('X', "Cooking MC's like a pound of bacon")
 ''' 
 import base64
