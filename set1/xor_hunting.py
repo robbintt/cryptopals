@@ -51,6 +51,12 @@ def letter_frequency_scorer(test_str):
         - This might hide actual english though without ascii whitespace
 
     I could also score based on how many non english characters are present
+
+    FUTURE:
+    I am convinced that bigrams is the way to go. Due to the nature of xor, it
+    is quite common for SOME result to be very close to the english letter
+    frequency space.  English bigram detection solves both english letter
+    occurrence and english letter frequency with one pass.
     '''
     score = 0
     presence = 0
