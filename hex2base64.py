@@ -1,6 +1,8 @@
 """ Decode a base16 string and encode it to base64 using the `base64 standard library module`
 
 base16 is hex
+
+Cryptopals Rule: "Always operate on raw bytes, never on encoded strings. Only use hex and base64 for pretty-printing."
 """
 
 import sys
