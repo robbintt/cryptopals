@@ -5,7 +5,7 @@ answer: [10231.933333333334, '5', 'Now that the party is jumping\n']
 Issue: python readlines() was giving me a '\n' making each string not ascii
 Response: I stripped the lines after importing them before processing them.
 '''
-from xor_hunting import xor_by_char, letter_frequency_scorer, test_characters
+from xor_hunting import xor_by_char, letter_frequency_scorer, test_characters, bigram_frequency_scorer
 
 
 if __name__ == '__main__':
@@ -22,7 +22,7 @@ if __name__ == '__main__':
                 if not result:
                     break
 
-                score = letter_frequency_scorer(result)
+                score = bigram_frequency_scorer(result)
                     
                 result_list.append([score, c, result])
 
