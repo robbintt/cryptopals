@@ -96,7 +96,7 @@ def bigram_frequency_scorer(test_str):
     presence = 0
     position = 0
     for i in range(len(test_str)-1):
-        bigram = test_str[i:i+2]
+        bigram = test_str[i:i+2].lower()
         score += bigram_frequency_index.get(bigram, 0)
         if bigram in bigram_frequency_index:
             presence += 1
