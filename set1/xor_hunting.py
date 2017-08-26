@@ -101,8 +101,8 @@ def bigram_frequency_scorer(test_str):
         if bigram in bigram_frequency_index:
             presence += 1
 
-    # the raw score is based on the frequency of each letter in the english language
-    # if a higher ratio of english letters are present, the score is higher
+    # the raw score is based on the frequency of each bigram in the english language
+    # if a higher ratio of english bigrams are present, the score is higher
     return score * (float(presence)  / len(test_str))
 
 
